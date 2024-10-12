@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import ServiceContext from '../data/servicesContext';
 
 function CustomService() {
-    const {  services, numPages, setNumPages, numLanguages, setNumLanguages } = useContext(ServiceContext);
+    const { numPages, setNumPages, numLanguages, setNumLanguages } = useContext(ServiceContext);
 
     const handleIncrement = (field) => {
         if (field === 'pages') {
@@ -29,7 +29,7 @@ function CustomService() {
         <input
           type="number"
           value={numPages}
-          onChange={(e) => setNumPages(Number(e.target.value))}
+          onChange={(e) =>  setNumPages(Math.max(0, Number(e.target.value)))}
           className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold appearance-none"
         />
         <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
@@ -42,7 +42,7 @@ function CustomService() {
         <input
           type="number"
           value={numLanguages}
-          onChange={(e) => setNumLanguages(Number(e.target.value))}
+          onChange={(e) =>  setNumLanguages(Math.max(0, Number(e.target.value)))}
           className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold"
         />
         <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
