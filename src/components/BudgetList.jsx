@@ -1,11 +1,49 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 const BudgetList = ({ budgets }) => {
+    
+    const [sortedBudgets, setSortedBudgets] = useState(budgets);
+    const [defaultBudgets, setDefaultBudgets] = useState(budgets);
+ 
+    useEffect(()=>{
+        setSortedBudgets(budgets);
+        setDefaultBudgets(budgets);
+    }, [budgets]);
+
+    // Filtrar por nombre
+    const handleSortByName = () => {
+        const sorted = [...sortedBudgets].sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+        setSortedBudgets(sorted);
+    };
+ 
+    // Función para reiniciar
+    const handleResetOrder = () => {
+        setSortedBudgets(defaultBudgets);
+    };
+ 
     return (
-        
+        <div>
+            {/* Botones filtros*/}
         <ul className='space-y-6 w-full max-w-3xl border-t-4 border-gray-400 mt-10'>
-            <p className='font-bold text-2xl mt-6 mb-8 '>Pressupostos en curs:</p>
-                {budgets.map((budget, index) => (
+            <p className='font-bold text-2xl mt-6'>Pressupostos en curs:</p>
+            <div className="flex space-x-4 mb-6 justify-end">
+                <button
+                    onClick={handleSortByName}
+                    className="checked:font-bold py-2 px-4 rounded"
+                >
+                    Nom▿
+                </button>
+                <button
+                    onClick={handleResetOrder}
+                    className="checked:font-bold py-2 px-4 rounded"
+                >
+                    Restart▿
+                </button>
+            </div>
+            {/* {Lista de presupuestos} */}
+                {sortedBudgets.map((budget, index) => (
                     <li key={index} className="flex grid-cols-3 mt-8 bg-white p-6 pb-6 rounded-xl shadow-lg">
                         <div className=' mr-2'>
                             <p className='text-3xl font-bold '>{budget.name}</p>
@@ -27,13 +65,14 @@ const BudgetList = ({ budgets }) => {
                                 )}
                             </ul>
                         </div>
-                        <div className='flex flex-col items-center text-center'>
+                        <div className='flex flex-col justify-center text-center'>
                             <strong className='text-gray-500'>Total:</strong> 
                             <p className='text-4xl font-bold'>{budget.totalPrice} € </p>
                         </div>
                     </li>
                 ))}
         </ul>
+    </div>
     );
 };
   

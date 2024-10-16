@@ -17,7 +17,6 @@ function InfoPopup({ title, message, buttonText }) {
       </button>
 
       {showPopup && (
-        <div className='bg-slate-600'>
         <div className="absolute top-full right-0 mt-2 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-6 py-3 shadow-md w-96 z-10">
           <div className="flex">
             <div className="py-1">
@@ -34,7 +33,6 @@ function InfoPopup({ title, message, buttonText }) {
               <p className="text-sm">{message}</p>
             </div>
           </div>
-        </div>
         </div>
       )}
     </div>
