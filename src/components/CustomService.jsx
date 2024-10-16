@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import ServiceContext from '../data/servicesContext';
+import InfoPopup from './InfoPopUp';
 
 function CustomService() {
     const { numPages, setNumPages, numLanguages, setNumLanguages } = useContext(ServiceContext);
@@ -24,31 +25,41 @@ function CustomService() {
 
         <div className="flex flex-col items-end space-y-2">
         <div className="flex items-center">
+            <InfoPopup 
+            title="Número de pàgines" 
+            message="Afegeix les pàgines que tindrà el teu projecte. Cada pàgina addicional té un cost de 30€." 
+            buttonText="i"
+            />
             <label className='font-bold mr-4'>Nombre de pàgines</label>
-            <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
-                onClick={() => handleDecrement('pages')}>-</button>
-            <input
-            type="number"
-            value={numPages}
-            onChange={(e) =>  setNumPages(Math.max(0, Number(e.target.value)))}
-            className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold appearance-none"
-            />
-            <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
-                onClick={() => handleIncrement('pages')}>+</button>
-        </div>
-        <div className="flex items-center">
+                <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
+                    onClick={() => handleDecrement('pages')}>-</button>
+                        <input
+                        type="number"
+                        value={numPages}
+                        onChange={(e) =>  setNumPages(Math.max(0, Number(e.target.value)))}
+                        className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold appearance-none"
+                        />
+                    <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
+                        onClick={() => handleIncrement('pages')}>+</button>
+            </div>
+            <div className="flex items-center ">
+                <InfoPopup 
+                    title="Número de llenguatges" 
+                    message="Afegeix els llenguatges que tindrà el teu projecte. Cada pàgina addicional té un cost de 30€." 
+                    buttonText="i"
+                />
             <label className='font-bold mr-4'>Nombre de llenguatges</label>
-            <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
-                onClick={() => handleDecrement('languages')}>-</button>
-            <input
-            type="number"
-            value={numLanguages}
-            onChange={(e) =>  setNumLanguages(Math.max(0, Number(e.target.value)))}
-            className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold"
-            />
-            <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
-                onClick={() => handleIncrement('languages')}>+</button>
-        </div>
+                <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
+                    onClick={() => handleDecrement('languages')}>-</button>
+                        <input
+                        type="number"
+                        value={numLanguages}
+                        onChange={(e) =>  setNumLanguages(Math.max(0, Number(e.target.value)))}
+                        className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold"
+                        />
+                    <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
+                        onClick={() => handleIncrement('languages')}>+</button>
+                </div>
         </div>
         );
     }
