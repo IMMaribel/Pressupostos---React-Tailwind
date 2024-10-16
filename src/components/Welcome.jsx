@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
-    <div className="flex bg-emerald-200 flex-col items-center justify-center min-h-screen">
+    <div className="flex bg-emerald-50 flex-col items-center justify-center min-h-screen">
       <h1 className="text-3xl font-bold mb-6">Benvingut/da a la calculadora de pressupostos web</h1>
       <p className="text-xl mb-4">
         Aquesta eina t'ajudarà a calcular el pressupost per al teu projecte web de forma ràpida i senzilla.
