@@ -8,7 +8,7 @@ import casa from '../images/casa.png'
 import BudgetList from './BudgetList';
 
 function Calculator() {
-    // { Despleable servicio WEB }
+    // { Desplegable servicio WEB }
     const { services, setServices, numPages, numLanguages } = useContext(ServiceContext);
   
     const handleChange = (e) => {
@@ -61,7 +61,7 @@ function Calculator() {
            
             {/* Banner */}
             <div className="relative w-full">
-                    {/* Icono home */}
+                     {/* Icono home */}
                     <Link to="/">
                         <button className="mt-6 mb-6 ml-6 px-4 py-2 absolute  bg-green-500 text-white rounded-md hover:bg-green-600">
                         <img src={casa} alt='inicio' className='w-6'/>

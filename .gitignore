@@ -32,7 +32,3 @@ build/
 # Lock files
 package-lock.json
 yarn.lock
-
-# Tailwind generated 
-tailwind.config.js
-postcss.config.js

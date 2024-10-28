@@ -38,9 +38,9 @@ function CustomService() {
                         value={numPages}
                         onChange={(e) =>  setNumPages(Math.max(0, Number(e.target.value)))}
                         className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold appearance-none"
-                        />
-                    <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
-                        onClick={() => handleIncrement('pages')}>+</button>
+                    />
+                <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
+                    onClick={() => handleIncrement('pages')}>+</button>
             </div>
             <div className="flex items-center ">
                 <InfoPopup 
@@ -56,9 +56,9 @@ function CustomService() {
                         value={numLanguages}
                         onChange={(e) =>  setNumLanguages(Math.max(0, Number(e.target.value)))}
                         className="border border-gray-300 rounded-md p-2 w-16 text-center font-bold"
-                        />
-                    <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
-                        onClick={() => handleIncrement('languages')}>+</button>
+                    />
+                <button className='m-2 w-4 h-4 flex items-center justify-center rounded-full border border-slate-500 text-slate-500' 
+                    onClick={() => handleIncrement('languages')}>+</button>
                 </div>
         </div>
         );
